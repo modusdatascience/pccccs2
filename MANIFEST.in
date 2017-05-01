@@ -1,0 +1,2 @@
+include versioneer.py
+include pccccs2/_version.py
