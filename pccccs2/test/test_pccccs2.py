@@ -1,11 +1,24 @@
-from pccccs2.pccccs2 import icd9cm_code_sets, icd10cm_code_sets
+from pccccs2.pccccs2 import code_sets
+from clinvoc.icd10 import ICD10CM, ICD10PCS
+from clinvoc.icd9 import ICD9CM, ICD9PCS
+from nose.tools import assert_equal
+
 
 def test_code_sets():
-    for k, v in icd9cm_code_sets.items():
-        print str(k) + ': ' + str(v)
-    
-    for k, v in icd10cm_code_sets.items():
-        print str(k) + ': ' + str(v)
+    icd9cm = ICD9CM()
+    icd9pcs = ICD9PCS()
+    icd10cm = ICD10CM()
+    icd10pcs = ICD10PCS()
+    for k, v in code_sets.items():
+        assert k[-1] in {'icd9cm', 'icd10cm', 'icd9pcs', 'icd10pcs'}
+        if k[-1] == 'icd9cm':
+            assert_equal(icd9cm.filter(v), v)
+        elif k[-1] == 'icd10cm':
+            assert_equal(icd10cm.filter(v), v)
+        if k[-1] == 'icd9pcs':
+            assert_equal(icd9pcs.filter(v), v)
+        elif k[-1] == 'icd10pcs':
+            assert_equal(icd10pcs.filter(v), v)
 
 if __name__ == '__main__':
     import sys
