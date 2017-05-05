@@ -11,8 +11,6 @@ from clinvoc.code_collections import codecoll
 #                     '428.83': None}
 # icd10_correction = {}
 
-Pccccs2Collection = codecoll('pccccs2', ['category', 'subcategory', 'vocabulary'])
-
 def _read_file(filename):
     icd9cm_expanded_vocab = ICD9CM(use_decimals=True)
     icd9pcs_vocab = ICD9PCS(use_decimals=True)
@@ -49,5 +47,6 @@ except:
     with open(os.path.join(resources, 'cache.pickle'), 'wb') as outfile:
         pickle.dump(_code_sets, outfile)
 
+Pccccs2Collection = codecoll('pcccs2', ['category', 'subcategory', 'vocabulary'])
 code_sets = Pccccs2Collection(*_code_sets.items())
 
