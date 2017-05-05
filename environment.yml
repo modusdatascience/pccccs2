@@ -5,4 +5,4 @@ dependencies:
     - pip:
         - pyparsing==2.2.0
         - toolz==0.8.2
-        - git+https://github.com/jcrudy/clinvoc.git@18863293c528691b2c0be8ec500cb4b1f6695617
+        - git+https://github.com/jcrudy/clinvoc.git@9176d82d9ff1f5687e348c9d2853e696be7a2d30

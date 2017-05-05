@@ -4,7 +4,7 @@ from .resources import resources
 from clinvoc.icd9 import ICD9PCS, ICD9CM
 from clinvoc.icd10 import ICD10CM, ICD10PCS
 import pickle
-from clinvoc.code_collections import codecoll
+from clinvoc.code_collections import CodeCollection
 
 # icd9_corrections = {'81.09': None,
 #                     '06.88': '996.88',
@@ -47,6 +47,5 @@ except:
     with open(os.path.join(resources, 'cache.pickle'), 'wb') as outfile:
         pickle.dump(_code_sets, outfile)
 
-Pccccs2Collection = codecoll('pcccs2', ['category', 'subcategory', 'vocabulary'])
-code_sets = Pccccs2Collection(*_code_sets.items())
+code_sets = CodeCollection(*_code_sets.items(), name='pcccs2', levels=['category', 'subcategory', 'vocabulary'])
 
