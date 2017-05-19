@@ -10,14 +10,19 @@ def test_code_sets():
     icd10pcs = ICD10PCS()
     for k, v in code_sets.collectlevels().items():
         assert k[-1] in {'ICD9CM', 'ICD10CM', 'ICD9PCS', 'ICD10PCS'}
+        assert k[-2] in {'DX', 'PX'}
         if k[-1] == 'icd9cm':
             assert_equal(icd9cm.filter(v), v)
+            assert_equal(k[-2], 'DX')
         elif k[-1] == 'icd10cm':
             assert_equal(icd10cm.filter(v), v)
+            assert_equal(k[-2], 'DX')
         if k[-1] == 'icd9pcs':
             assert_equal(icd9pcs.filter(v), v)
+            assert_equal(k[-2], 'PX')
         elif k[-1] == 'icd10pcs':
             assert_equal(icd10pcs.filter(v), v)
+            assert_equal(k[-2], 'PX')
 
 if __name__ == '__main__':
     import sys
