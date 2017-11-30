@@ -1,8 +1,8 @@
 name: pcccs2dev
 dependencies:
-    - python=2.7.12
-    - nose=1.3.7
+    - python=3.6.2
+    - nose
     - pip:
-        - pyparsing==2.2.0
-        - toolz==0.8.2
-        - git+https://github.com/jcrudy/clinvoc.git@6e490ba3cd8f3e326611d3f223ac0a8434115f43
+        - pyparsing
+        - toolz
+        - git+https://github.com/jcrudy/clinvoc.git

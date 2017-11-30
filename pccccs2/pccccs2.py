@@ -7,7 +7,7 @@ import pickle
 from clinvoc.code_collections import CodeCollection
 from ._version import get_versions
 from . import __version__
-
+from six import next
 # icd9_corrections = {'81.09': None,
 #                     '06.88': '996.88',
 #                     '428.83': None}
@@ -28,9 +28,9 @@ def _read_file(filename):
         icd10pcs_vocab = ICD10PCS(use_decimals=True)
         icd10mixed_vocab = ICD10CM(use_decimals=True) | ICD10PCS(use_decimals=False)
         result = {}
-        with open(filename, 'rb') as infile:
+        with open(filename, 'rt') as infile:
             reader = csv.reader(infile)
-            reader.next()
+            next(reader)
             for row in reader:
                 if row[3].strip().replace('/', '').upper() != 'NA':
                     all_codes = icd9mixed_vocab.parse(row[3])
