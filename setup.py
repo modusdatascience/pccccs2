@@ -6,7 +6,7 @@ setup(name='pccccs2',
       author='Jason Rudy',
       author_email='jcrudy@gmail.com',
       url='https://github.com/jcrudy/pccccs2',
-      package_data={'pccccs2': ['resources/*.csv']},
+      package_data={'pccccs2': ['resources/*.csv', 'resources/*.pickle']},
       packages=find_packages(),
       requires=['clinvoc']
      )
